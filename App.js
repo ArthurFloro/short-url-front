@@ -1,11 +1,11 @@
 import axios from "axios"
 import { useState } from "react"
-import { ActivityIndicator, Alert, Keyboard, StyleSheet, TextInput, TouchableOpacity, View , Text } from "react-native"
+import { ActivityIndicator, Alert, Keyboard, StyleSheet, TextInput, TouchableOpacity, View , Text, StatusBar } from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context"
 
 
 // defininido url da api
-const API_URL = 'http://localhost:5000'
+const API_URL = process.env.EXPO_PUBLIC_API_URL;
 
 
 export default function App() {
@@ -46,9 +46,10 @@ export default function App() {
   return (
   
     <SafeAreaView style={styles.container}>
+      <StatusBar translucent/>
 
-      <View  >
-        <Text style={styles.content}>Encurtar de URL</Text>
+      <View  style={styles.content}>
+        <Text style={styles.title}>Encurtar de URL</Text>
 
         <TextInput
         style={styles.input} 
